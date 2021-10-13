@@ -1,6 +1,6 @@
 <?php  
 /*
-  ./core/connexion.php 
+  ./core/connection.php 
  */
 
 

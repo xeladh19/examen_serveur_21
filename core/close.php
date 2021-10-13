@@ -1,6 +1,6 @@
 <?php 
 /*
-../core/close.php
+./core/close.php
 */
 
 unset($conn);

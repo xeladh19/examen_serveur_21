@@ -9,59 +9,62 @@ Options +FollowSymlinks
 RewriteEngine on
 
 # --------------------------------------------------
-# DETAIL D'UN POST
+# ROUTE PAR DEFAUT: liste des posts
 # --------------------------------------------------
-#DETAIL D'UN POST
-    #PATTERN: /post/x
-    #Détails du post x
-    RewriteRule ^post\/([0-9]+)$ index.php?postId=$1 [L]
-# --------------------------------------------------
-# --------------------------------------------------
-# DETAIL D'UNE PAGE
-# --------------------------------------------------
-#DETAIL D'UNE PAGE 
-    #PATTERN: /page/x
-    #Détails de la page x
-    RewriteRule ^page\/([0-9]+)$ index.php?pageId=$1 [L]
-# --------------------------------------------------
-# --------------------------------------------------
-#  ROUTE D'AJOUT D'UN POST: FORMULAIRE
-# --------------------------------------------------
-    #PATTERN: /posts/add/form.html
-    #FROM posts/add/form
-    #TO index.php?posts=addForm
-   RewriteRule ^posts\/add\/form.html$ index.php?posts=addForm [L]
-    
-# --------------------------------------------------
-#  ROUTE D'AJOUT D'UN POST: INSERT
-# --------------------------------------------------
-    #PATTERN: /posts/add/insert.html
-    #FROM posts/add/insert
-    #TO index.php?posts=addInsert
-   RewriteRule ^posts\/add\/insert.html$ index.php?posts=addInsert [L]
 
+            #PATTERN: /
+            #CTRL: ???
+            #ACTION: ???
+            #TITLE: Alex Parker - Blog
 # --------------------------------------------------
-#  ROUTE DE LA SUPPRESSION D'UN POST
+# ROUTE DU DETAIL D'UN POST
 # --------------------------------------------------
-    #PATTERN: /posts/delete.html
-    #TO index.php?posts=delete&postId=x
-RewriteRule ^posts\/([0-9]+)\/delete.html$ index.php?posts=delete&postId=$1 [L]
+	
+			#PATTERN: /posts/id/slug-du-post.html
+			#CTRL: ???
+			#ACTION: ???
+			#TITLE: Alex Parker - Title du post
+# --------------------------------------------------
+# ROUTE D'AJOUT D'UN POST: affichage du formulaire
+# --------------------------------------------------
+	
+			#PATTERN: /posts/add/form.html
+			#CTRL: ???
+			#ACTION: ???
+			#TITLE: Alex Parker - Add a post
+# --------------------------------------------------
+# ROUTE D'AJOUT D'UN POST: INSERT
+# --------------------------------------------------
+	
+			#PATTERN: /posts/add/insert.html
+			#CTRL: ???
+			#ACTION: ???
+			#PAS DE TITLE CAR REDIRECTION VERS LA PAGE D'ACCUEIL
+# --------------------------------------------------
+# ROUTE DE MODIFICATION D'UN POST: Affichage du formulaire
+# --------------------------------------------------
+	
+			#PATTERN: /posts/id/slug-du-post/edit/form.html
+			#CTRL: ???
+			#ACTION: ???
+			#TITLE: Alex Parker - Edit a post
+# --------------------------------------------------
+# ROUTE DE MODIFICATION D'UN POST: UPDATE
+# --------------------------------------------------
+	
+			#PATTERN: /posts/id/slug-du-post/edit/update.html
+			#CTRL: ???
+			#ACTION: ???
+			#PAS DE TITLE CAR REDIRECTION VERS LA PAGE DE DETAILS DU POST
+# --------------------------------------------------
+# ROUTE DE SUPPRESSION D'UN POST:
+# --------------------------------------------------
+	
+			#PATTERN: /posts/id/slug-du-post/delete.html
+			#CTRL: ???
+			#ACTION: ???
+			#PAS DE TITLE CAR REDIRECTION VERS LA PAGE D'ACCUEIL
 
-# --------------------------------------------------
-#  ROUTE DE L'EDITION' D'UN POST: FORMULAIRE
-# --------------------------------------------------
- 
-    #PATTERN: /posts/edit/form.html
-    #FROM posts/edit/form
-    #TO index.php?posts=editForm&postId=x
-RewriteRule ^posts\/([1-9][0-9]*)\/editForm.html$ index.php?posts=editForm&postId=$1 [L]
-# --------------------------------------------------
-#  ROUTE D'EDITION D'UN POST: UPDATE
-# --------------------------------------------------
-    #PATTERN: /posts/id/update.html
-    #FROM posts/id/update
-    #TO index.php?posts=editForm&postId=x
-RewriteRule ^posts\/([1-9][0-9]*)\/update.html$ index.php?posts=update&postId=$1 [L]
 # --------------------------------------------------
 RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|zip|png|pdf)$ [NC]
 RewriteRule ^(.*)$ index.php [L]

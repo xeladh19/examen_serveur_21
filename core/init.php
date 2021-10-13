@@ -1,6 +1,6 @@
 <?php 
 /*
-../core/init.php
+./core/init.php
 */
 
 require_once '../app/config/params.php';
