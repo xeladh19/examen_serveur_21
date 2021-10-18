@@ -35,30 +35,30 @@ RewriteEngine on
 # 	ROUTE D'AJOUT D'UN POST: INSERT
 #--------------------------------------------------
 # 			PATTERN: /posts/add/insert.html
-#           URL:
+#           URL: index.php?post=addInsert
 # 			PAS DE TITLE CAR REDIRECTION VERS LA PAGE D'ACCUEIL
             RewriteRule ^posts\/add/insert.html$ index.php?post=addInsert [L]
 #--------------------------------------------------
 # 	ROUTE DE MODIFICATION D'UN POST: Affichage du formulaire
 #--------------------------------------------------
 # 			PATTERN: /posts/id/slug-du-post/edit/form.html
-#           URL
+#           URL: index.php?post=editForm&id=x
 # 			TITLE: Alex Parker - Edit a post
             RewriteRule ^posts\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*)\/editform.html$ index.php?post=editForm&id=$1 [L] 
 #--------------------------------------------------
 # 	ROUTE DE MODIFICATION D'UN POST: UPDATE
 #--------------------------------------------------
 # 			PATTERN: /posts/id/slug-du-post/edit/update.html
-#           URL:
+#           URL:index.php?post=update&id=x
 # 			PAS DE TITLE CAR REDIRECTION VERS LA PAGE DE DETAILS DU POST
-             RewriteRule ^posts\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*)\/edit\/update.html$ index.php?post=update&id=$1 [L] 
+            RewriteRule ^posts\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*)\/edit\/update.html$ index.php?post=update&id=$1 [L] 
 #--------------------------------------------------
 # 	ROUTE DE SUPPRESSION D'UN POST:
 #--------------------------------------------------
 # 			PATTERN: /posts/id/slug-du-post/delete.html
-#           URL:
+#           URL: index.php?post=delete&id=x
 # 			PAS DE TITLE CAR REDIRECTION VERS LA PAGE D'ACCUEIL
-            
+            RewriteRule ^posts\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*)\/delete.html$ index.php?post=delete&id=$1 [L] 
 #--------------------------------------------------
 
 RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|zip|png|pdf)$ [NC]

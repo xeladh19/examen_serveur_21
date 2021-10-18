@@ -11,7 +11,12 @@ use \App\Models\PostsModel;
 # --------------------------------------------------
 #  AFFICHAGE DES 10 DERNIERS POSTS
 # --------------------------------------------------
-
+/**
+ * Affichage des posts
+ *
+ * @param \PDO $conn
+ * @return void
+ */
 function indexAction(\PDO $conn){
     include_once '../app/models/postsModel.php';
     $posts = PostsModel\findAll($conn);
@@ -26,6 +31,13 @@ function indexAction(\PDO $conn){
 # --------------------------------------------------
 # DETAIL D'UN POST
 # --------------------------------------------------
+/**
+ * Détail d'un post
+ *
+ * @param \PDO $conn
+ * @param integer $id
+ * @return void
+ */
 function showAction(\PDO $conn, int $id){
     include_once '../app/models/postsModel.php';
     $post = PostsModel\findOneById($conn,$id);
@@ -40,6 +52,12 @@ function showAction(\PDO $conn, int $id){
 # --------------------------------------------------
 # FORMULAIRE D'AJOUT D'UN POST
 # --------------------------------------------------
+/**
+ * Formulaire d'ajout d'un post
+ *
+ * @param \PDO $conn
+ * @return void
+ */
 function addFormAction(\PDO $conn){
     GLOBAL $content,$zoneTitle;
     $zoneTitle = "Add a post";
@@ -51,6 +69,12 @@ function addFormAction(\PDO $conn){
 # --------------------------------------------------
 # AJOUT D'UN POST
 # --------------------------------------------------
+/**
+ * Ajout d'un post
+ *
+ * @param \PDO $conn
+ * @return void
+ */
 function addAction(\PDO $conn){
     include_once '../app/models/postsModel.php';
     PostsModel\insert($conn,$_POST);
@@ -60,7 +84,13 @@ function addAction(\PDO $conn){
 # --------------------------------------------------
 # FORMULAIRE DE L'EDITION D'UN POST
 # --------------------------------------------------
-
+/**
+ * Formulaire d'edition d'un post
+ *
+ * @param \PDO $conn
+ * @param integer $id
+ * @return void
+ */
 function editFormAction(\PDO $conn, int $id){
     include '../app/models/postsModel.php';
     $post = PostsModel\findOneById($conn,$id);
@@ -69,14 +99,41 @@ function editFormAction(\PDO $conn, int $id){
     ob_start();
     include '../app/views/posts/editForm.php';
     $content = ob_get_clean();
+    
 }
 # --------------------------------------------------
 # UPDATE D'UN POST
 # --------------------------------------------------
+/**
+ * Update d'un post
+ *
+ * @param \PDO $conn
+ * @param integer $id
+ * @param array $data
+ * @return void
+ */
 function updateAction(\PDO $conn,int $id,array $data){
-    // Je demande au modèle d'updater le post
-    include '../app/models/postsModel.php';
-    PostsModel\updateOneById($conn,$id,$_POST);
+    // Je demande au model d'updater le post
+    include_once '../app/models/postsModel.php';
+    PostsModel\updateOneById($conn,$id,$data);
     // Je redirige vers le détail du  post
-    header('location: ' . BASE_URL);
+    header('location: ' . BASE_URL .'posts/'. $id . '/' .\Core\Functions\slugify($_POST['title']) . '.html');
+    
 }
+# --------------------------------------------------
+# SUPPRESSION D'UN POST
+# --------------------------------------------------
+
+// function deleteAction(\PDO $conn, int $id) {
+//     include_once '../app/models/postsModel.php';
+//       $reponse = postsModel\deleteOneById($conn,$id);
+//       if($reponse == 1):
+//         header('location: ' . BASE_URL);
+//       else:
+//         GLOBAL $content;
+//         $content = "<h1>Erreur la page n'a pas pu être affichée</h1>
+//                     <div>
+//                     <button href='location: ' . BASE_URL>Retour</button>
+//                     </div>";
+//       endif;
+// }

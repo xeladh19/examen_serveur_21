@@ -26,16 +26,16 @@
                     <!-- Post Headline End -->
 
                     <!-- Form Start -->
-                    <form action="posts/<?php echo $post['id']; ?>/<?php echo \Core\Functions\slugify($post['title']); ?>/edit/update.html" method="post" >
+                    <form action="posts/<?php echo $post['id']; ?>/<?php echo \Core\Functions\slugify($post['title']); ?>/edit/update.html" method="post">
                     <div class="form-group">
                         <label for="title">Title</label>
                         <input type="text" name="title"id="title"class="form-control"
-                          placeholder="Enter your title here" />
+                          placeholder="Enter your title here" value=<?php echo $post['title']; ?>/>
                     </div>
                       <div class="form-group">
                         <label for="text">Text</label>
                         <textarea id="text" name="text" class="form-control" rows="5"
-                          placeholder="Enter your text here"></textarea>
+                          placeholder="Enter your text here"><?php echo $post['text']; ?></textarea>
                       </div>
                       <div class="form-group">
                         <label for="exampleFormControlFile1"> Image</label>
@@ -49,7 +49,7 @@
                           class="form-control"
                           rows="5"
                           placeholder="Enter your quote here"
-                        ></textarea>
+                        ><?php echo $post['quote']; ?></textarea>
                       </div>
                       <div class="form-group">
                         <label for="text">Category</label>
