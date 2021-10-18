@@ -19,42 +19,46 @@ RewriteEngine on
 # 	ROUTE DU DETAIL D'UN POST
 #--------------------------------------------------
 # 			PATTERN: /posts/id/slug-du-post.html
-#           TO: index.php?posts=show&id=x
+#           URL: index.php?post=show&id=x
 # 			TITLE: Alex Parker - Title du post
-            RewriteRule ^posts\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*).html$ index.php?posts=show&id=$1 [L]
+            RewriteRule ^posts\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*).html$ index.php?post=show&id=$1 [L]
 
 #--------------------------------------------------
 # 	ROUTE D'AJOUT D'UN POST: affichage du formulaire
 #--------------------------------------------------
 # 			PATTERN: /posts/add/form.html
-#           TO: index.php?posts=addForm
+#           URL: index.php?post=addForm
 # 			TITLE: Alex Parker - Add a post
-            RewriteRule ^posts\/add\/form.html$ index.php?posts=addForm [L]
+            RewriteRule ^posts\/add\/form.html$ index.php?post=addForm [L]
 
 #--------------------------------------------------
 # 	ROUTE D'AJOUT D'UN POST: INSERT
 #--------------------------------------------------
 # 			PATTERN: /posts/add/insert.html
+#           URL:
 # 			PAS DE TITLE CAR REDIRECTION VERS LA PAGE D'ACCUEIL
-
+            RewriteRule ^posts\/add/insert.html$ index.php?post=addInsert [L]
 #--------------------------------------------------
 # 	ROUTE DE MODIFICATION D'UN POST: Affichage du formulaire
 #--------------------------------------------------
 # 			PATTERN: /posts/id/slug-du-post/edit/form.html
+#           URL
 # 			TITLE: Alex Parker - Edit a post
-
+            RewriteRule ^posts\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*)\/editform.html$ index.php?post=editForm&id=$1 [L] 
 #--------------------------------------------------
 # 	ROUTE DE MODIFICATION D'UN POST: UPDATE
 #--------------------------------------------------
 # 			PATTERN: /posts/id/slug-du-post/edit/update.html
+#           URL:
 # 			PAS DE TITLE CAR REDIRECTION VERS LA PAGE DE DETAILS DU POST
-
+             RewriteRule ^posts\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*)\/edit\/update.html$ index.php?post=update&id=$1 [L] 
 #--------------------------------------------------
 # 	ROUTE DE SUPPRESSION D'UN POST:
 #--------------------------------------------------
 # 			PATTERN: /posts/id/slug-du-post/delete.html
+#           URL:
 # 			PAS DE TITLE CAR REDIRECTION VERS LA PAGE D'ACCUEIL
-
+            
 #--------------------------------------------------
 
 RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|zip|png|pdf)$ [NC]

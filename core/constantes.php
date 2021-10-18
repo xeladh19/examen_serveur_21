@@ -1,6 +1,6 @@
 <?php  
 /*
-    ./core/constantes.php
+    ./core/constants.php
 */
 
 $base_href = explode("public/", $_SERVER['REQUEST_URI']);

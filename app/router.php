@@ -7,7 +7,7 @@
 
 
 
-        if(isset($_GET['posts'])):
+        if(isset($_GET['post'])):
           include_once '../app/router/postsRouter.php';
           
     
