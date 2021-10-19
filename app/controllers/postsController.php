@@ -124,16 +124,17 @@ function updateAction(\PDO $conn,int $id,array $data){
 # SUPPRESSION D'UN POST
 # --------------------------------------------------
 
-// function deleteAction(\PDO $conn, int $id) {
-//     include_once '../app/models/postsModel.php';
-//       $reponse = postsModel\deleteOneById($conn,$id);
-//       if($reponse == 1):
-//         header('location: ' . BASE_URL);
-//       else:
-//         GLOBAL $content;
-//         $content = "<h1>Erreur la page n'a pas pu être affichée</h1>
-//                     <div>
-//                     <button href='location: ' . BASE_URL>Retour</button>
-//                     </div>";
-//       endif;
-// }
+function deleteAction(\PDO $conn, int $id) {
+    include_once '../app/models/postsModel.php';
+      $reponse = postsModel\deleteOneById($conn,$id);
+     
+      if($reponse == 1):
+        header('location: ' . BASE_URL);
+      else:
+        GLOBAL $content;
+        $content = "<h1>Erreur la page n'a pas pu être affichée</h1>
+                    <div>
+                    <a href=. BASE_URL . > Retour </a>
+                    </div>";
+      endif;
+}

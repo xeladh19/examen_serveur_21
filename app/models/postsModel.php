@@ -107,11 +107,11 @@ function updateOneById(\PDO $conn, int $id, array $data ){
 # SUPPRESSION D'UN POST
 # --------------------------------------------------
 
-// function deleteOneById(\PDO $conn,int $id){
-//     $sql = "DELETE FROM `posts 
-//             WHERE id = :id;";
+function deleteOneById(\PDO $conn,int $id){
+    $sql = "DELETE FROM `posts 
+            WHERE id = :id;";
 
-//             $rs = $conn->prepare($sql);
-//             $rs->bindValue(':id',$id,\PDO::PARAM_INT);
-//             return ($rs->execute())?1:0;
-// }
+            $rs = $conn->prepare($sql);
+            $rs->bindValue(':id',$id,\PDO::PARAM_INT);
+            return ($rs->execute())?1:0;
+}

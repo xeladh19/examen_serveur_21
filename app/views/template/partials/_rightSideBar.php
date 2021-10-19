@@ -8,7 +8,7 @@
  
         <?php echo $content; ?>
   
-              
+           
 <!-- Footer Start -->
         <?php include '../app/views/template/partials/_footer.php'; ?>
 <!-- Footer End -->
