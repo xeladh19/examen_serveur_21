@@ -5,6 +5,7 @@
         - $posts ARRAY(ARRAY(title,text,created_at,quote))
   */
 ?>
+
 <div class="col-md-12 page-body">
   <div class="row">
     <div class="col-md-12 content-page">
@@ -19,17 +20,18 @@
             <?php foreach($posts as $post): ?>
               <div>
                 <div class="post-title">
-                  <a href="posts/<?php echo $post['id']; ?>/<?php echo \Core\Functions\slugify($post['title']); ?>.html"><h1><?php echo $post['title']; ?></h1></a>
+                  <a href="posts/<?php echo $post['postId']; ?>/<?php echo \Core\Functions\slugify($post['title']); ?>.html"><h1><?php echo $post['title']; ?></h1></a>
                 </div>
                 <div class="post-info">
-                  <span> <?php echo \Core\Functions\datify($post['created_at']); ?></span> | <span>Life style</span>
+                  <span><?php echo \Core\Functions\datify($post['postDate']); ?></span> | <span><?php echo $post['categorieName'];?></span>
                 </div>
                   <p><?php echo \Core\Functions\truncate($post['text']); ?></p>
                           
-                  <a href="posts/<?php echo $post['id']; ?>/<?php echo \Core\Functions\slugify($post['title']); ?>.html" class="fa fa-long-arrow-right"><span>Read More</span></a>
+                  <a href="posts/<?php echo $post['postId']; ?>/<?php echo \Core\Functions\slugify($post['title']); ?>.html" class="fa fa-long-arrow-right"><span>Read More</span></a>
                   </div>
                   <?php endforeach; ?>
           </div>
+
           <nav aria-label="Page navigation example" style="text-align: center;">
                     <ul class="pagination">
                       <li class="page-item"><a class="page-link" href="#">Previous</a></li>
@@ -39,6 +41,7 @@
                       <li class="page-item"><a class="page-link" href="#">Next</a></li>
                     </ul>
                   </nav>
+                  
         <!-- Blog Post End -->
 
     </div>

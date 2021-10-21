@@ -33,7 +33,7 @@
 
                     <!-- Post Detail Start -->
                     <div class="post-info">
-                      <span><?php echo \Core\Functions\datify($post['created_at']); ?></span> | <span>Life style</span>
+                      <span><?php echo \Core\Functions\datify($post['created_at']); ?></span> | <span><?php echo $post['categorieName'];?></span>
                     </div>
                     <!-- Post Detail End -->
 
@@ -50,8 +50,8 @@
                     <!-- Post Blockquote (Italic Style) End -->
 
                     <!-- Post Buttons -->
-                    <div><a href="posts/<?php echo $post['id'] ?>/<?php echo \Core\Functions\slugify($post['title']); ?>/editform.html" type="button" class="btn btn-primary">Edit Post</a>
-                      <a href="posts/<?php echo $post['id'] ?>/<?php echo \Core\Functions\slugify($post['title']); ?>/delete.html"type="button"class="btn btn-secondary"role="button">Delete Post</a>
+                    <div><a href="posts/<?php echo $post['postId'] ?>/<?php echo \Core\Functions\slugify($post['title']); ?>/editform.html" type="button" class="btn btn-primary">Edit Post</a>
+                      <a href="posts/<?php echo $post['postId'] ?>/<?php echo \Core\Functions\slugify($post['title']); ?>/delete.html"type="button"class="btn btn-secondary"role="button">Delete Post</a>
                     </div>
                     <!-- Post Buttons End -->
                   </div>

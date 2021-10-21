@@ -15,11 +15,10 @@
                     <li><a href="index.html">My blog</a></li>
                   </ul>
                 </nav>
-                <ul class="menu-link">
-                  <li><a href="index.html">Life style [12]</a></li>
-                  <li><a href="index.html">Sport[23]</a></li>
-                  <li><a href="index.html">Music[46]</a></li>
-                </ul>
+                <?php 
+                include_once '../app/controllers/categoriesController.php';
+                \App\Controllers\categoriesController\indexAction($conn);
+                ?>
               </div>
 
               <div class="my-detail">

@@ -16,9 +16,9 @@ switch ($_GET['post']):
         //PATTERN:/
         //CTRL:postsController
         //ACTION:showAction
-case "show":
-        PostsController\showAction($conn,$_GET['id']);
-break;
+// case "show":
+//         PostsController\showAction($conn,$_GET['postId']);
+// break;
 # --------------------------------------------------
 # ROUTE DU FORMULAIRE D'AJOUT D'UN POST
 # --------------------------------------------------
@@ -37,6 +37,7 @@ break;
 case "addInsert":
         PostsController\addAction($conn);
         
+        
 break;
 # --------------------------------------------------
 # ROUTE DU FORMULAIRE D'EDITION D'UN POST
@@ -46,6 +47,7 @@ break;
         //ACTION:editFormAction
 case "editForm":
         PostsController\editFormAction($conn,$_GET['id']); 
+        
 break;
 # --------------------------------------------------
 # ROUTE  D'EDITION D'UN POST
@@ -55,6 +57,7 @@ break;
         //ACTION:updateAction
 case "update":
         PostsController\updateAction($conn,$_GET['id'],$_POST);
+        
         
         
 break;

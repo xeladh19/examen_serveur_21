@@ -79,6 +79,7 @@ function addAction(\PDO $conn){
     include_once '../app/models/postsModel.php';
     PostsModel\insert($conn,$_POST);
     header('location: ' . BASE_URL);
+    
    
 }
 # --------------------------------------------------
@@ -92,13 +93,17 @@ function addAction(\PDO $conn){
  * @return void
  */
 function editFormAction(\PDO $conn, int $id){
+    // Je demande au model de trouver le post correspondant
     include '../app/models/postsModel.php';
     $post = PostsModel\findOneById($conn,$id);
+   
     GLOBAL $content,$zoneTitle;
     $title = "Edit a post";
     ob_start();
+     // Je charge la vue editForm dans content
     include '../app/views/posts/editForm.php';
     $content = ob_get_clean();
+ 
     
 }
 # --------------------------------------------------
@@ -116,6 +121,7 @@ function updateAction(\PDO $conn,int $id,array $data){
     // Je demande au model d'updater le post
     include_once '../app/models/postsModel.php';
     PostsModel\updateOneById($conn,$id,$data);
+   
     // Je redirige vers le détail du  post
     header('location: ' . BASE_URL .'posts/'. $id . '/' .\Core\Functions\slugify($_POST['title']) . '.html');
     

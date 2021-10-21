@@ -5,9 +5,11 @@
   use \App\Controllers\PostsController;
  
 
+        if(isset($_GET['postId'])):
+          include_once '../app/controllers/postsController.php';
+          PostsController\showAction($conn, $_GET['postId']);
 
-
-        if(isset($_GET['post'])):
+        elseif(isset($_GET['post'])):
           include_once '../app/router/postsRouter.php';
           
     

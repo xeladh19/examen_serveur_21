@@ -17,7 +17,7 @@
     <meta name="copyright" content="company name" />
     <meta name="robots" content="index,follow" />
     <base href="<?php echo BASE_URL; ?>">
-    <title>DevBlog - <?php echo $zoneTitle; ?></title>
+    <title>Alex Parker - <?php echo $zoneTitle; ?></title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon/favicon.ico" />

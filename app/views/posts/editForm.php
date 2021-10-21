@@ -26,21 +26,26 @@
                     <!-- Post Headline End -->
 
                     <!-- Form Start -->
-                    <form action="posts/<?php echo $post['id']; ?>/<?php echo \Core\Functions\slugify($post['title']); ?>/edit/update.html" method="post">
+                    <form action="posts/<?php echo $post['postId']; ?>/<?php echo \Core\Functions\slugify($post['title']); ?>/edit/update.html" method="post">
                     <div class="form-group">
                         <label for="title">Title</label>
                         <input type="text" name="title"id="title"class="form-control"
-                          placeholder="Enter your title here" value=<?php echo $post['title']; ?>/>
+                          placeholder="Enter your title here" value= "<?php echo $post['title']; ?>"/>
                     </div>
                       <div class="form-group">
                         <label for="text">Text</label>
                         <textarea id="text" name="text" class="form-control" rows="5"
                           placeholder="Enter your text here"><?php echo $post['text']; ?></textarea>
                       </div>
+                      
+                      <!-- Image upload -->
                       <div class="form-group">
+                        <form action="index.php" method = "POST">
                         <label for="exampleFormControlFile1"> Image</label>
-                        <input type="file" class="form-control-file btn btn-primary" id="exampleFormControlFile1">
+                        <input type="file" class="form-control-file btn btn-primary" id="exampleFormControlFile1" enctype= multipart/form-data >
+                        </form>
                       </div>
+
                       <div class="form-group">
                         <label for="text">Quote</label>
                         <textarea
@@ -53,17 +58,18 @@
                       </div>
                       <div class="form-group">
                         <label for="text">Category</label>
-                        <select
-                          id="category"
-                          name="category_id"
-                          class="form-control"
-                        >
+                        <select id="category" name="category_id" class="form-control">
                           <option disabled selected>
                             Select your category
                           </option>
-                          <option value="1">Life style</option>
-                          <option value="2">Sport</option>
-                        </select>
+                          <!-- Mise en place des catégories pour un post -->
+                          <?php include_once "../app/models/categoriesModel.php";
+                                    $categories = App\Models\CategoriesModel\findAll($conn); ?>
+                          <?php foreach ($categories as $categorie): ?>
+                  <option value="<?php echo $categorie['id']; ?>" <?php if($categorie['id'] == $post['categorieId']) {echo 'selected="selected"';}?>><?php echo $categorie['name']; ?></option>
+               <?php endforeach; ?>
+
+                    </select>
                       </div>
                       <div>
                         <input
