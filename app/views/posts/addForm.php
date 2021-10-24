@@ -9,12 +9,8 @@
             <div class="col-md-12 page-body">
               <div class="row">
                 <div class="sub-title">
-                  <a href="index.html" title="Go to Home Page"
-                    ><h2>Back Home</h2></a
-                  >
-                  <a href="#comment" class="smoth-scroll"
-                    ><i class="icon-bubbles"></i
-                  ></a>
+                  <a href="index.html" title="Go to Home Page"><h2>Back Home</h2></a>
+                  <a href="#comment" class="smoth-scroll"><i class="icon-bubbles"></i></a>
                 </div>
 
                 <div class="col-md-12 content-page">
@@ -34,8 +30,7 @@
                     </div>
                       <div class="form-group">
                         <label for="text">Text</label>
-                        <textarea id="text" name="text" class="form-control" rows="5"
-                          placeholder="Enter your text here"></textarea>
+                        <textarea id="text" name="text" class="form-control" rows="5" placeholder="Enter your text here"></textarea>
                       </div>
                       <div class="form-group">
                         <label for="exampleFormControlFile1"> Image</label>
@@ -43,21 +38,11 @@
                       </div>
                       <div class="form-group">
                         <label for="text">Quote</label>
-                        <textarea
-                          id="quote"
-                          name="quote"
-                          class="form-control"
-                          rows="5"
-                          placeholder="Enter your quote here"
-                        ></textarea>
+                        <textarea id="quote" name="quote" class="form-control" rows="5" placeholder="Enter your quote here"></textarea>
                       </div>
                       <div class="form-group">
                         <label for="text">Category</label>
-                        <select
-                          id="category"
-                          name="category_id"
-                          class="form-control"
-                        >
+                        <select id="category" name="category_id" class="form-control">
                           <option disabled selected>
                             Select your category
                           </option>
@@ -69,16 +54,8 @@
                         </select>
                       </div>
                       <div>
-                        <input
-                          class="btn btn-primary"
-                          type="submit"
-                          value="submit"
-                        />
-                        <input
-                          class="btn btn-secondary"
-                          type="reset"
-                          value="reset"
-                        />
+                        <input class="btn btn-primary"  type="submit"   value="submit"   />
+                        <input  class="btn btn-secondary" type="reset"  value="reset"  />
                       </div>
                     </form>
                     <!-- Form End -->

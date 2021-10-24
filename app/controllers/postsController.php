@@ -18,9 +18,10 @@ use \App\Models\PostsModel;
  * @return void
  */
 function indexAction(\PDO $conn){
+    // Je mets dans $posts la liste des 10 derniers posts que je demande au model
     include_once '../app/models/postsModel.php';
     $posts = PostsModel\findAll($conn);
-
+    // Je charge la vue posts/index dans $content
     GLOBAL $content,$zoneTitle;
     $title = "blog";
     ob_start();
@@ -39,8 +40,10 @@ function indexAction(\PDO $conn){
  * @return void
  */
 function showAction(\PDO $conn, int $id){
+    // Je mets dans $post les infos du post que je demande au model
     include_once '../app/models/postsModel.php';
     $post = PostsModel\findOneById($conn,$id);
+    // Je charge la vue show dans $content
     GLOBAL $content,$zoneTitle;
     $zoneTitle = $post['title'];
     ob_start();
@@ -59,6 +62,7 @@ function showAction(\PDO $conn, int $id){
  * @return void
  */
 function addFormAction(\PDO $conn){
+    // Je charge la vue addForm dans $content
     GLOBAL $content,$zoneTitle;
     $zoneTitle = "Add a post";
     ob_start();
@@ -75,9 +79,11 @@ function addFormAction(\PDO $conn){
  * @param \PDO $conn
  * @return void
  */
-function addAction(\PDO $conn){
+function addAction(\PDO $conn, array $data){
+    // Je demande au model d'ajouter le post
     include_once '../app/models/postsModel.php';
-    PostsModel\insert($conn,$_POST);
+    PostsModel\insert($conn,$_POST,$data);
+    // Je redirige vers la liste des posts
     header('location: ' . BASE_URL);
     
    
@@ -129,14 +135,23 @@ function updateAction(\PDO $conn,int $id,array $data){
 # --------------------------------------------------
 # SUPPRESSION D'UN POST
 # --------------------------------------------------
-
+/**
+ * Suppression d'un post
+ *
+ * @param \PDO $conn
+ * @param integer $id
+ * @return void
+ */
 function deleteAction(\PDO $conn, int $id) {
+    // Je demande au modèle de supprimer le post
     include_once '../app/models/postsModel.php';
       $reponse = postsModel\deleteOneById($conn,$id);
      
       if($reponse == 1):
+        // Je redirige vers la liste des posts
         header('location: ' . BASE_URL);
       else:
+        //En cas d'erreur j'envois vers cette page
         GLOBAL $content;
         $content = "<h1>Erreur la page n'a pas pu être affichée</h1>
                     <div>

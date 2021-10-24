@@ -4,6 +4,13 @@
         Variables disponibles:
         - $posts ARRAY(ARRAY(title,text,created_at,quote))
   */
+
+
+
+
+
+
+
 ?>
 
 <div class="col-md-12 page-body">
@@ -32,18 +39,13 @@
                   <?php endforeach; ?>
           </div>
 
-          <nav aria-label="Page navigation example" style="text-align: center;">
-                    <ul class="pagination">
-                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                      <li class="page-item"><a class="page-link" href="#">1</a></li>
-                      <li class="page-item"><a class="page-link" href="#">2</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
-                  </nav>
-                  
+          
         <!-- Blog Post End -->
-
+        <nav aria-label="Page navigation example" style="text-align: center;">
+        <ul class="pagination">
+          <?php  include_once "../app/views/template/partials/_pagination.php";?>
+        </ul>
+      </nav>
     </div>
   </div>
 </div>

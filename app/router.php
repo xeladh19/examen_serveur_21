@@ -4,12 +4,7 @@
   */
   use \App\Controllers\PostsController;
  
-
-        if(isset($_GET['postId'])):
-          include_once '../app/controllers/postsController.php';
-          PostsController\showAction($conn, $_GET['postId']);
-
-        elseif(isset($_GET['post'])):
+if(isset($_GET['post'])):
           include_once '../app/router/postsRouter.php';
           
     

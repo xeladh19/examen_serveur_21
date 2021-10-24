@@ -1,6 +1,6 @@
 <?php  
 /*
-  ./core/function.php 
+  ./core/functions.php 
  */
 namespace core\Functions;
 /**

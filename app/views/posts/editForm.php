@@ -40,12 +40,9 @@
                       
                       <!-- Image upload -->
                       <div class="form-group">
-                        <form action="index.php" method = "POST">
                         <label for="exampleFormControlFile1"> Image</label>
-                        <input type="file" class="form-control-file btn btn-primary" id="exampleFormControlFile1" enctype= multipart/form-data >
-                        </form>
+                        <input type="file" class="form-control-file btn btn-primary" id="exampleFormControlFile1">
                       </div>
-
                       <div class="form-group">
                         <label for="text">Quote</label>
                         <textarea

@@ -10,3 +10,5 @@
 
 <!-- Main Javascript File  -->
     <script type="text/javascript" src="js/scripts.js"></script>
+    <script src="vendor/bootstrap-notify-master/bootstrap-notify.min.js"></script>
+    <script src="js/app.js"></script>

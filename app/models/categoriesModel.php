@@ -5,8 +5,11 @@
 
  namespace App\Models\CategoriesModel;
 
+# --------------------------------------------------
+#  ENSEMBLE DES CATEGORIES    
+# --------------------------------------------------
 /**
- * Undocumented function
+ * Trouver l'ensemble des categories
  *
  * @param \PDO $conn
  * @param integer $limit

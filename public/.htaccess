@@ -21,7 +21,7 @@ RewriteEngine on
 # 			PATTERN: /posts/id/slug-du-post.html
 #           URL: index.php?post=show&postId=x
 # 			TITLE: Alex Parker - Title du post
-            RewriteRule ^posts\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*).html$ index.php?post=show&postId=$1 [L]
+            RewriteRule ^posts\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*).html$ index.php?post=show&id=$1 [L]
 
 #--------------------------------------------------
 # 	ROUTE D'AJOUT D'UN POST: affichage du formulaire
